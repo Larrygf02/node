@@ -1,5 +1,5 @@
 const { crearArchivo } = require('../multiplicar/multiplicar')
-let base = 7;
+let base = 'd';
 
 crearArchivo(base)
     .then(archivo => console.log(`Archivo creado ${archivo}`))
