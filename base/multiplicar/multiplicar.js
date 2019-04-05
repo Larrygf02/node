@@ -1,5 +1,6 @@
 //requireds
 const fs = require('fs');
+const colors = require('colors');
 
 let listarTabla = (base, limite) => {
     return new Promise((resolve, reject) => {
@@ -7,11 +8,12 @@ let listarTabla = (base, limite) => {
             reject('Los datos recibidos deben ser un numero')
             return;
         }
-        let data = '';
+        console.log("====================".green);
+        console.log(`=====tabla de ${base}=====`.green);
+        console.log("====================".green);
         for(let i=1;i<=limite; i++){
-            data += `${base}*${i}=${base*i}\n`
+            console.log(`${base}*${i}=${base*i}\n`)
         }
-        resolve(data)
     })
 }
 let crearArchivo = (base, limite) => {
@@ -31,7 +33,7 @@ let crearArchivo = (base, limite) => {
             if (err) 
                 reject(err)
             else
-                resolve(`tablas/tabla-${base}.txt`);
+                resolve(`tablas/tabla-${base}.txt`.green);
         })
     })
 }
