@@ -1,6 +1,19 @@
 //requireds
 const fs = require('fs');
 
+let listarTabla = (base, limite) => {
+    return new Promise((resolve, reject) => {
+        if(!Number(base) || !Number(limite)){
+            reject('Los datos recibidos deben ser un numero')
+            return;
+        }
+        let data = '';
+        for(let i=1;i<=limite; i++){
+            data += `${base}*${i}=${base*i}\n`
+        }
+        resolve(data)
+    })
+}
 let crearArchivo = (base) => {
     return new Promise((resolve, reject)=> {
         if (!Number(base)){
@@ -24,5 +37,6 @@ let crearArchivo = (base) => {
 }
 
 module.exports = {
-    crearArchivo
+    crearArchivo,
+    listarTabla
 }
