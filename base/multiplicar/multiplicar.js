@@ -14,7 +14,7 @@ let listarTabla = (base, limite) => {
         resolve(data)
     })
 }
-let crearArchivo = (base) => {
+let crearArchivo = (base, limite) => {
     return new Promise((resolve, reject)=> {
         if (!Number(base)){
             reject(`El valor introducido debe ser un numero ${ base } no es un numero`)
@@ -22,7 +22,7 @@ let crearArchivo = (base) => {
         }
         let data = '';
 
-        for (let i=1; i<=10; i++){
+        for (let i=1; i<=limite; i++){
             data += `${base}*${i}=${base*i}\n`
         }
         
